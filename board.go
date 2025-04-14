@@ -53,5 +53,5 @@ func (b Board) Display() {
 		}
 		fmt.Printf(" %d\n", i+1)
 	}
-	fmt.Println("   a  b  c  d  e  f  g  h\n")
+	fmt.Println("   a  b  c  d  e  f  g  h")
 }
