@@ -1,2 +1,5 @@
-//dummy text
+package main
 
+func main() {
+	StartGame()
+}
