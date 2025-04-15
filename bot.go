@@ -2,16 +2,14 @@ package main
 
 import (
 	"math/rand"
-	"time"
 )
 
-func Bot(moveChan chan string, board *Board, gameOver chan bool) {
+func Bot(moveChan chan string, movedChan chan struct{}, board *Board, gameOver chan bool) {
 	for {
 		select {
 		case <-gameOver:
 			return
 		case <-moveChan:
-			time.Sleep(500 * time.Millisecond)
 			
 			var moves [][2][2]int
 			for row := 0; row < 8; row++ {
@@ -35,6 +33,8 @@ func Bot(moveChan chan string, board *Board, gameOver chan bool) {
 					board[move[1][0]][move[1][1]].Piece = BlackQueen{}
 				}
 			}
+
+			movedChan <- struct{}{}
 		}
 	}
 }

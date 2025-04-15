@@ -10,10 +10,11 @@ import (
 func StartGame() {
 	board := NewBoard()
 	playerTurn := true
-	moveChan := make(chan string)
-	gameOver := make(chan bool)
+	moveChan := make(chan string, 1)
+	movedChan := make(chan struct{}, 1)
+	gameOver := make(chan bool, 1)
 
-	go Bot(moveChan, &board, gameOver)
+	go Bot(moveChan, movedChan, &board, gameOver)
 
 	for {
 		board.Display()
@@ -66,6 +67,7 @@ func StartGame() {
 
 			playerTurn = false
 			moveChan <- "bot"
+			<-movedChan
 		} else {
 			playerTurn = true
 		}

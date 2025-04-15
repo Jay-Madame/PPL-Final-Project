@@ -1,24 +1,25 @@
 package main
-
+/**
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
+**/
 
-//non-gui version
-/**
+
 func main() {
 	StartGame()
 }
-**/
+
 
 // test graphics
 
 // to not test this feat
 //  feel free to replace with
-//  /** these surrounding**/
+//  
+/** these surrounding
 func main() {
 	myApp := app.New()
 	window := myApp.NewWindow("Chess with Fyne")
@@ -37,3 +38,4 @@ func main() {
 	window.Resize(fyne.NewSize(400, 400)) // Set window size
 	window.ShowAndRun()
 }
+**/
